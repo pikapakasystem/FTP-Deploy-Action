@@ -3189,12 +3189,12 @@ class FTPSyncProvider {
                 yield this.removeFile(file.name);
             }
             // delete old folders
-            let lastFile = '///'
+            let lastFileName = '///'
             for (const file of diffs.delete.filter(item => item.type === "folder")) {
-                if(!file.startsWith(lastFile + '/')) {
+                if(!file.name.startsWith(lastFileName + '/')) {
                     yield this.removeFolder(file.name);
                 }
-                lastFile = file
+                lastFileName = file.name
             }
             this.logger.all(`----------------------------------------------------------------`);
             this.logger.all(`🎉 Sync complete. Saving current server state to "${this.serverPath + this.stateName}"`);
