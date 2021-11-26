@@ -3147,7 +3147,7 @@ class FTPSyncProvider {
             else {
                 this.logger.verbose(`  removing folder "${path.folders.join("/") + "/"}"`);
                 if (this.dryRun === false) {
-                    yield utilities_1.retryRequest(this.logger, () => __awaiter(this, void 0, void 0, function* () { return yield this.client.removeDir(path.folders.join("/") + "/"); }));
+                    yield utilities_1.retryRequest(this.logger, () => __awaiter(this, void 0, void 0, function* () { return yield this.client.removeDir(path.folders.join("/")); }));
                 }
             }
             this.logger.verbose(`  completed`);
